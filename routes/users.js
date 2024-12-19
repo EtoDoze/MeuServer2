@@ -22,14 +22,14 @@ router.post('/', async (req, res) => {
     }
 
     // Criptografa a senha
-    const hashedPassword = await bcrypt.hash(password, 10);
+  //  const hashedPassword = await bcrypt.hash(password, 10);
 
     // Cria o usuário
     const newUser = await prisma.user.create({
       data: {
         name,
         email,
-        password: hashedPassword,
+        password //: hashedPassword,
       },
     });
 
@@ -70,7 +70,7 @@ router.delete('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const users = await prisma.user.findMany({
-      select: { id: true, name: true, email: true, Criado: true },
+      select: { id: true, name: true, email: true},
     });
     res.status(200).json(users);
   } catch (error) {
