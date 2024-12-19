@@ -70,7 +70,7 @@ router.delete('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const users = await prisma.user.findMany({
-      select: { id: true, name: true, email: true},
+      select: { id: true, name: true, email: true, password: true},
     });
     res.status(200).json(users);
   } catch (error) {
