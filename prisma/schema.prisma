@@ -22,5 +22,5 @@ model User {
 
   password  String
 
-  Data DateTime @default(now())
+  Criado DateTime @default(now())
 }
